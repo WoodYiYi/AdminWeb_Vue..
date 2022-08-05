@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <div>登陆页面</div>
+    <div>登陆页面myComputer test</div>
   </div>
 
 </template>
