@@ -10,7 +10,10 @@ router.beforeEach((to, from, next) => {
   const globalStore = GlobalStore();
   if (!globalStore.token) {
     next({
-      path: ''
+      path: './login'
     })
+    return;
   }
+
+  // const authStore = AuthStore();
 })
