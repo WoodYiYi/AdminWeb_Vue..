@@ -31,3 +31,11 @@ export interface xxx {
 }
 ````
 
+## bugError
+
+### Bug1：实现pinia持久化保存时，pinia-plugin-persistedstate插件版本更新出现报错
+
+````
+原因：如果 npm 版本大于 6 则需要 添加 --legacy-peer-deps
+解决：npm install pinia-plugin-persistedstate@1.6.1 --legacy-peer-deps
+````

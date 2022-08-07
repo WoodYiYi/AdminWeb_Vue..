@@ -1,5 +1,6 @@
 import router from "@/routers/router";
 import {GlobalStore} from "@/store";
+import {AuthStore} from "@/store/modules/auth";
 
 router.beforeEach((to, from, next) => {
 
@@ -15,5 +16,7 @@ router.beforeEach((to, from, next) => {
     return;
   }
 
-  // const authStore = AuthStore();
+  const authStore = AuthStore();
+
+  const dynamicRouter = authStore
 })
