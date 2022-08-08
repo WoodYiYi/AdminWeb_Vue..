@@ -1,6 +1,7 @@
+import {GlobalStore} from "@/store/index";
 import router from "@/routers/router";
-import {GlobalStore} from "@/store";
-import {AuthStore} from "@/store/modules/auth";
+import { HOME_URL } from "@/config/config";
+import { AuthStore } from "@/store/modules/auth";
 
 router.beforeEach((to, from, next) => {
 
@@ -18,5 +19,20 @@ router.beforeEach((to, from, next) => {
 
   const authStore = AuthStore();
 
-  const dynamicRouter = authStore
-})
+  const dynamicRouter = authStore.dynamicRouter;
+
+  const staticRouter = [HOME_URL, "/403"];
+  const routerList = dynamicRouter.concat(staticRouter);
+
+  // * 如果访问的地址没有路由表中重定向到403页面
+  if (routerList.indexOf(to.path) !== -1) return next();
+  next({
+    path: '/403'
+  });
+});
+
+router.afterEach(() => {
+
+});
+
+export default router
